@@ -91,35 +91,48 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
     background-color: #FEFDFB;
     border: 1px solid #E1E5EB;
+    display: flex;
+    flex-direction: column;
 }
 .bag-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 50px -12px rgba(30, 40, 50, 0.15);
 }
+.bag-card > div:first-child {
+    flex-shrink: 0;
+}
+.bag-card > div:last-child {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.bag-card .mt-3:last-child {
+    margin-top: auto;
+}
 .category-line {
-    width: 40px; height: 2px; background-color: #4A6178;
+    width: 40px; height: 2px; background-color: #9D4A5C;
     display: inline-block; vertical-align: middle; margin-right: 12px;
 }
 .whatsapp-btn {
-    background: linear-gradient(135deg, #4A6178 0%, #2C3A4A 100%);
+    background: linear-gradient(135deg, #9D4A5C 0%, #7A3A4A 100%);
     transition: all 0.3s ease;
 }
 .whatsapp-btn:hover {
-    background: linear-gradient(135deg, #2C3A4A 0%, #1E2832 100%);
+    background: linear-gradient(135deg, #7A3A4A 0%, #5A2A3A 100%);
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(74, 97, 120, 0.4);
+    box-shadow: 0 10px 28px rgba(157, 74, 92, 0.4);
 }
 .back-to-top {
     position: fixed; bottom: 88px; right: 24px; z-index: 55;
     width: 44px; height: 44px; border-radius: 50%;
-    background: #4A6178; color: #fff;
+    background: #9D4A5C; color: #fff;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; opacity: 0; visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 16px rgba(74, 97, 120, 0.3); border: none;
+    box-shadow: 0 4px 16px rgba(157, 74, 92, 0.3); border: none;
 }
 .back-to-top.visible { opacity: 1; visibility: visible; }
-.back-to-top:hover { background: #2C3A4A; transform: translateY(-3px); }
+.back-to-top:hover { background: #7A3A4A; transform: translateY(-3px); }
 .section-spacer { scroll-margin-top: 40px; }
 
 /* Touch-friendly button sizes */
@@ -128,18 +141,18 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     display: inline-flex; align-items: center; justify-content: center;
     font-size: 18px; font-weight: 500; cursor: pointer;
     transition: all 0.2s ease; user-select: none;
-    border: 1px solid #C3CBD6; color: #4A6178; background: transparent;
+    border: 1px solid #E8B4B8; color: #9D4A5C; background: transparent;
 }
-.qty-btn:hover { background: #F0F2F5; border-color: #4A6178; }
+.qty-btn:hover { background: #FCE9EC; border-color: #9D4A5C; }
 .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 .qty-value { min-width: 28px; text-align: center; font-size: 16px; font-weight: 500; color: #2A1A1A; }
 .add-to-cart-btn {
     font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
-    color: #fff; background: #4A6178; border: none;
+    color: #fff; background: #9D4A5C; border: none;
     min-height: 44px; padding: 0 18px; border-radius: 999px;
     cursor: pointer; transition: all 0.3s ease;
 }
-.add-to-cart-btn:hover { background: #2C3A4A; }
+.add-to-cart-btn:hover { background: #7A3A4A; }
 .add-to-cart-btn:active { transform: scale(0.95); }
 
 /* Cart drawer */
@@ -162,7 +175,7 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 .cart-drawer.open { transform: translateX(0); }
 .cart-header {
     padding: 20px 24px;
-    border-bottom: 1px solid #C3CBD6;
+    border-bottom: 1px solid #E8B4B8;
     display: flex; align-items: center; justify-content: space-between;
 }
 .cart-items {
@@ -171,18 +184,18 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 }
 .cart-footer {
     padding: 20px 24px;
-    border-top: 1px solid #C3CBD6;
+    border-top: 1px solid #E8B4B8;
 }
 .cart-item {
     display: flex; gap: 12px; align-items: flex-start;
     padding: 12px 0;
-    border-bottom: 1px solid #E1E5EB;
+    border-bottom: 1px solid #F5E0E3;
 }
 .cart-item:last-child { border-bottom: none; }
 .cart-item-img {
     width: 64px; height: 64px; border-radius: 8px;
     object-fit: cover; flex-shrink: 0;
-    background: #F0F2F5;
+    background: #FCE9EC;
 }
 .cart-empty {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -191,7 +204,7 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 .cart-badge {
     position: absolute; top: -6px; right: -8px;
     width: 20px; height: 20px; border-radius: 50%;
-    background: #4A6178; color: #fff;
+    background: #9D4A5C; color: #fff;
     font-size: 11px; font-weight: 600;
     display: flex; align-items: center; justify-content: center;
     opacity: 0; transform: scale(0); transition: all 0.3s ease;
@@ -204,13 +217,19 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     60% { transform: scale(0.9); }
     100% { transform: scale(1); }
 }
+.cart-drop { animation: cartDrop 0.5s ease; }
+@keyframes cartDrop {
+    0% { transform: translateY(-18px); opacity: 0.5; }
+    60% { transform: translateY(4px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+}
 .remove-btn {
     width: 32px; height: 32px; border-radius: 50%;
     display: inline-flex; align-items: center; justify-content: center;
-    border: none; background: transparent; color: #4A6178;
+    border: none; background: transparent; color: #9D4A5C;
     cursor: pointer; font-size: 16px; transition: all 0.2s ease;
 }
-.remove-btn:hover { background: #F0F2F5; color: #1E2832; }
+.remove-btn:hover { background: #FCE9EC; color: #7A3A4A; }
 @media (max-width: 640px) {
     .hero-title { font-size: 2.25rem; }
     .qty-btn { width: 36px; height: 36px; font-size: 15px; }
@@ -223,10 +242,28 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     .bag-card .text-sm { font-size: 11px; }
     .bag-card h3.text-sm { font-size: 12px; }
     
-    /* Stack quantity and add to cart button on mobile */
+    /* Ensure consistent card heights and element alignment */
+    .bag-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .bag-card > div:first-child {
+        flex-shrink: 0;
+    }
+    .bag-card > div:last-child {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .bag-card .mt-3:last-child {
+        margin-top: auto;
+    }
+    
+    /* Center quantity selector and add to cart button */
     .bag-card .mt-3.flex {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         gap: 0.5rem;
     }
     .bag-card .mt-3.flex .flex.items-center {
@@ -235,6 +272,7 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     .bag-card .mt-3.flex .add-to-cart-btn {
         width: 100%;
         text-align: center;
+        max-width: 200px;
     }
 }
 @media (max-width: 380px) {
@@ -264,61 +302,75 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
     </div>
 
     <!-- ===== PREMIUM HEADER ===== -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-navy-100 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <header class="bg-rose-50/95 backdrop-blur-md border-b border-rose-200/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8 lg:px-12">
             <div class="flex items-center justify-between h-20">
                 <!-- Left Navigation -->
                 <div class="hidden md:flex items-center space-x-8 flex-1">
                     <div class="relative group">
-                        <button class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-gray-800 hover:text-gray-600 transition-colors flex items-center gap-2">
+                        <button class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-rose-900 hover:text-rose-700 transition-colors flex items-center gap-2">
                             Shop
                             <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white border border-rose-200/60 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                             <div class="py-2">
-                                <a href="#totes" class="block px-5 py-2.5 text-xs font-sans text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">Totes</a>
-                                <a href="#crossbody" class="block px-5 py-2.5 text-xs font-sans text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">Crossbody</a>
-                                <a href="#clutches" class="block px-5 py-2.5 text-xs font-sans text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">Clutches</a>
+                                <a href="#totes" class="block px-5 py-2.5 text-xs font-sans text-rose-900 hover:bg-rose-50 hover:text-rose-700 transition-colors">Totes</a>
+                                <a href="#crossbody" class="block px-5 py-2.5 text-xs font-sans text-rose-900 hover:bg-rose-50 hover:text-rose-700 transition-colors">Crossbody</a>
+                                <a href="#clutches" class="block px-5 py-2.5 text-xs font-sans text-rose-900 hover:bg-rose-50 hover:text-rose-700 transition-colors">Clutches</a>
                             </div>
                         </div>
                     </div>
-                    <a href="#about" class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-gray-800 hover:text-gray-600 transition-colors">Our Story</a>
+                    <a href="#about" class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-rose-900 hover:text-rose-700 transition-colors">Our Story</a>
                 </div>
 
                 <!-- Centered Logo -->
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 absolute left-1/2 transform -translate-x-1/2">
                     <a href="#" class="block">
-                        <h1 class="text-2xl md:text-3xl font-serif font-bold text-navy-800 tracking-wide" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700;">Vora Atelier</h1>
+                        <h1 class="text-2xl md:text-3xl font-serif font-bold text-rose-900 tracking-wide" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700;">Vora Atelier</h1>
                     </a>
                 </div>
 
                 <!-- Right Navigation -->
                 <div class="hidden md:flex items-center space-x-8 flex-1 justify-end">
-                    <a href="#contact" class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-gray-800 hover:text-gray-600 transition-colors">Contact</a>
-                    <button onclick="toggleCart()" class="relative bg-transparent border-none cursor-pointer p-2" aria-label="Open cart">
-                        <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+                    <a href="#contact" class="text-xs font-sans font-medium uppercase tracking-[0.2em] text-rose-900 hover:text-rose-700 transition-colors">Contact</a>
+                    <button id="cartIcon" onclick="toggleCart()" class="relative bg-transparent border-none cursor-pointer p-2" aria-label="Open cart">
+                        <svg class="w-5 h-5 text-rose-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
                         <span id="cartCount" class="cart-badge">0</span>
                     </button>
                 </div>
 
+                <!-- Mobile Cart -->
+                <button id="cartIconMobile" onclick="toggleCart()" class="md:hidden relative bg-transparent border-none cursor-pointer p-2 flex items-center justify-center" aria-label="Open cart">
+                    <svg class="w-6 h-6 text-rose-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+                    <span id="cartCountMobile" class="cart-badge">0</span>
+                </button>
+
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button class="md:hidden p-2 flex items-center justify-center" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6 text-rose-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-navy-100 bg-white">
-            <div class="px-4 pt-2 pb-4 space-y-1">
-                <div class="px-3 py-2">
-                    <p class="text-xs font-sans font-semibold uppercase tracking-[0.2em] text-gray-500 mb-2">Shop</p>
-                    <a href="#totes" class="block px-3 py-2 text-sm font-sans text-gray-700 hover:text-gray-900">Totes</a>
-                    <a href="#crossbody" class="block px-3 py-2 text-sm font-sans text-gray-700 hover:text-gray-900">Crossbody</a>
-                    <a href="#clutches" class="block px-3 py-2 text-sm font-sans text-gray-700 hover:text-gray-900">Clutches</a>
+        <div id="mobileMenu" class="hidden md:hidden border-t border-rose-200/60 bg-rose-50/95 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pt-6 pb-6 space-y-1">
+                <!-- Shop Section with Dropdown -->
+                <div class="mb-4">
+                    <button onclick="toggleShopDropdown()" class="w-full flex items-center justify-between px-4 py-3 text-sm font-sans font-semibold uppercase tracking-[0.15em] text-rose-900 hover:bg-rose-100/50 transition-all rounded-lg">
+                        <span>Shop</span>
+                        <svg id="shopArrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="shopDropdown" class="hidden mt-2 space-y-1 pl-4">
+                        <a href="#totes" class="block px-4 py-3 text-sm font-sans text-rose-900 hover:bg-rose-100/50 hover:text-rose-700 transition-all text-center rounded-lg">Totes</a>
+                        <a href="#crossbody" class="block px-4 py-3 text-sm font-sans text-rose-900 hover:bg-rose-100/50 hover:text-rose-700 transition-all text-center rounded-lg">Crossbody</a>
+                        <a href="#clutches" class="block px-4 py-3 text-sm font-sans text-rose-900 hover:bg-rose-100/50 hover:text-rose-700 transition-all text-center rounded-lg">Clutches</a>
+                    </div>
                 </div>
-                <a href="#about" class="block px-3 py-2 text-sm font-sans text-gray-700 hover:text-gray-900">Our Story</a>
-                <a href="#contact" class="block px-3 py-2 text-sm font-sans text-gray-700 hover:text-gray-900">Contact</a>
+                <div class="border-t border-rose-200/60 pt-3 space-y-1">
+                    <a href="#about" class="block px-4 py-3 text-sm font-sans text-rose-900 hover:bg-rose-100/50 hover:text-rose-700 transition-all text-center rounded-lg">Our Story</a>
+                    <a href="#contact" class="block px-4 py-3 text-sm font-sans text-rose-900 hover:bg-rose-100/50 hover:text-rose-700 transition-all text-center rounded-lg">Contact</a>
+                </div>
             </div>
         </div>
     </header>
@@ -353,10 +405,10 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         <section id="totes" class="section-spacer mb-24 md:mb-32 reveal">
         <div class="flex items-center gap-4 mb-2">
                 <span class="category-line"></span>
-                <h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Totes</h2>
-                <span class="text-navy-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
+                <h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Totes</h2>
+                <span class="text-rose-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
             </div>
-            <p class="text-navy-500/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Everyday luxury for the modern journey</p>
+            <p class="text-rose-700/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Everyday luxury for the modern journey</p>
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 <!-- Tote 1 -->
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Classic Tote" data-price="12800" data-image="images/tote-01.png">
@@ -365,9 +417,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                         <div class="absolute top-3 right-3 bg-rose-400/85 text-white text-[9px] font-sans font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full">New</div>
                     </div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Classic Tote</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Smooth calfskin · Gold hardware</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 12,800</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Classic Tote</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Smooth calfskin · Gold hardware</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 12,800</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1">
                                 <button class="qty-btn" onclick="changeQty(this,-1)" aria-label="Decrease quantity">−</button>
@@ -382,9 +434,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Structured Shopper" data-price="9500" data-image="images/tote-02.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/tote-02.png" alt="The Structured Shopper" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Structured Shopper</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Saffiano leather · Top handles</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 9,500</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Structured Shopper</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Saffiano leather · Top handles</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 9,500</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1">
                                 <button class="qty-btn" onclick="changeQty(this,-1)" aria-label="Decrease quantity">−</button>
@@ -399,9 +451,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Bucket Bag" data-price="7200" data-image="images/tote-03.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/tote-03.png" alt="The Bucket Bag" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Bucket Bag</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Slouchy suede · Drawstring closure</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 7,200</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Bucket Bag</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Slouchy suede · Drawstring closure</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 7,200</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1">
                                 <button class="qty-btn" onclick="changeQty(this,-1)" aria-label="Decrease quantity">−</button>
@@ -416,9 +468,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Leather Weekender" data-price="14200" data-image="images/tote-04.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/tote-04.png" alt="The Leather Weekender" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Leather Weekender</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Grained leather · Detachable pouch</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 14,200</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Leather Weekender</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Grained leather · Detachable pouch</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 14,200</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1">
                                 <button class="qty-btn" onclick="changeQty(this,-1)" aria-label="Decrease quantity">−</button>
@@ -433,9 +485,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Woven Raffia Tote" data-price="6800" data-image="images/tote-05.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/tote-05.png" alt="The Woven Raffia Tote" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Woven Raffia Tote</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Artisan weave · Summer essential</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 6,800</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Woven Raffia Tote</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Artisan weave · Summer essential</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 6,800</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1">
                                 <button class="qty-btn" onclick="changeQty(this,-1)" aria-label="Decrease quantity">−</button>
@@ -453,17 +505,17 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         <section id="crossbody" class="section-spacer mb-24 md:mb-32 reveal">
         <div class="flex items-center gap-4 mb-2">
                 <span class="category-line"></span>
-                <h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Crossbody</h2>
-                <span class="text-navy-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
+                <h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Crossbody</h2>
+                <span class="text-rose-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
             </div>
-            <p class="text-navy-500/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Effortless style, hands-free</p>
+            <p class="text-rose-700/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Effortless style, hands-free</p>
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Saddle Bag" data-price="8900" data-image="images/crossbody-01.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/crossbody-01.png" alt="The Saddle Bag" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Saddle Bag</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Flap closure · Adjustable strap</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 8,900</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Saddle Bag</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Flap closure · Adjustable strap</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 8,900</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -473,9 +525,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Camera Bag" data-price="6500" data-image="images/crossbody-02.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/crossbody-02.png" alt="The Camera Bag" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Camera Bag</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Compact pebbled leather · Zip top</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 6,500</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Camera Bag</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Compact pebbled leather · Zip top</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 6,500</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -485,9 +537,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Chain Strap Bag" data-price="10200" data-image="images/crossbody-03.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/crossbody-03.png" alt="The Chain Strap Bag" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Chain Strap Bag</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Quilted lambskin · Chain link strap</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 10,200</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Chain Strap Bag</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Quilted lambskin · Chain link strap</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 10,200</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -497,9 +549,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Half-Moon Bag" data-price="7600" data-image="images/crossbody-04.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/crossbody-04.png" alt="The Half-Moon Bag" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Half-Moon Bag</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Crescent silhouette · Magnetic snap</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 7,600</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Half-Moon Bag</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Crescent silhouette · Magnetic snap</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 7,600</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -509,9 +561,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Mini Envelope" data-price="5200" data-image="images/crossbody-05.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/crossbody-05.png" alt="The Mini Envelope" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Mini Envelope</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Structured flap · Removable strap</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 5,200</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Mini Envelope</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Structured flap · Removable strap</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 5,200</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -525,17 +577,17 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         <section id="clutches" class="section-spacer mb-24 md:mb-32 reveal">
         <div class="flex items-center gap-4 mb-2">
                 <span class="category-line"></span>
-                <h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Clutches</h2>
-                <span class="text-navy-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
+                <h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Clutches</h2>
+                <span class="text-rose-400 text-xs md:text-sm ml-auto font-sans font-medium">05</span>
             </div>
-            <p class="text-navy-500/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Evening opulence, artfully refined</p>
+            <p class="text-rose-700/80 text-xs md:text-sm font-sans mb-8 ml-[52px] font-medium">Evening opulence, artfully refined</p>
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Minaudière" data-price="15800" data-image="images/clutches-01.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/clutches-01.png" alt="The Minaudière" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Minaudière</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Crystal-embellished · Framed closure</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 15,800</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Minaudière</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Crystal-embellished · Framed closure</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 15,800</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -545,9 +597,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Fold-Over Clutch" data-price="8400" data-image="images/clutches-02.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/clutches-02.png" alt="The Fold-Over Clutch" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Fold-Over Clutch</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Soft calfskin · Gold bar closure</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 8,400</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Fold-Over Clutch</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Soft calfskin · Gold bar closure</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 8,400</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -557,9 +609,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Envelope Clutch" data-price="6200" data-image="images/clutches-03.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/clutches-03.png" alt="The Envelope Clutch" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Envelope Clutch</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Patent leather · Detachable wristlet</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 6,200</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Envelope Clutch</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Patent leather · Detachable wristlet</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 6,200</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -569,9 +621,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Box Clutch" data-price="11600" data-image="images/clutches-04.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/clutches-04.png" alt="The Box Clutch" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Box Clutch</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Hard shell · Acrylic inlay</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 11,600</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Box Clutch</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Hard shell · Acrylic inlay</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 11,600</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -581,9 +633,9 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 <div class="bag-card rounded-md overflow-hidden" data-name="The Silk Pouch" data-price="4800" data-image="images/clutches-05.png">
                     <div class="aspect-[4/5] overflow-hidden"><img src="images/clutches-05.png" alt="The Silk Pouch" class="w-full h-full object-cover" loading="lazy"></div>
                     <div class="p-3 md:p-5">
-                        <h3 class="text-sm md:text-lg font-serif font-semibold text-[#2A1A1A]">The Silk Pouch</h3>
-                        <p class="text-navy-500 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Duchess satin · Drawstring tassel</p>
-                        <p class="text-sm md:text-base font-serif font-semibold text-[#2A1A1A] mt-2">KES 4,800</p>
+                        <h3 class="text-sm md:text-lg font-serif font-semibold text-rose-900">The Silk Pouch</h3>
+                        <p class="text-rose-700 text-[11px] md:text-sm mt-0.5 font-sans font-medium">Duchess satin · Drawstring tassel</p>
+                        <p class="text-sm md:text-base font-serif font-semibold text-rose-900 mt-2">KES 4,800</p>
                         <div class="mt-3 flex items-center justify-between gap-2">
                             <div class="flex items-center gap-0.5 sm:gap-1"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-value">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
                             <button class="add-to-cart-btn" onclick="addToCartBtn(this)">Add to Cart</button>
@@ -594,15 +646,15 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         </section>
 
         <!-- ===== BRAND NOTE ===== -->
-        <section class="text-center py-12 md:py-16 border-t border-navy-200/70">
+        <section class="text-center py-12 md:py-16 border-t border-rose-200/70">
             <div class="max-w-lg mx-auto px-4">
         <div class="flex items-center justify-center gap-3 mb-6">
-                    <span class="block w-8 h-px bg-navy-300"></span>
-                    <span class="block w-1.5 h-1.5 rounded-full bg-navy-400"></span>
-                    <span class="block w-8 h-px bg-navy-300"></span>
+                    <span class="block w-8 h-px bg-rose-300"></span>
+                    <span class="block w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                    <span class="block w-8 h-px bg-rose-300"></span>
                 </div>
-                <p class="text-navy-500 text-sm font-sans tracking-[0.15em] uppercase mb-3 font-medium">Artistry Meets Heritage</p>
-                <p class="text-navy-800 text-base md:text-lg italic font-serif leading-relaxed">Each piece is a testament to the atelier's devotion to timeless design, premium materials, and impeccable craftsmanship.</p>
+                <p class="text-rose-500 text-sm font-sans tracking-[0.15em] uppercase mb-3 font-medium">Artistry Meets Heritage</p>
+                <p class="text-rose-900 text-base md:text-lg italic font-serif leading-relaxed">Each piece is a testament to the atelier's devotion to timeless design, premium materials, and impeccable craftsmanship.</p>
             </div>
         </section>
 
@@ -611,16 +663,16 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
             <div class="max-w-4xl mx-auto">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="category-line"></span>
-                    <h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Our Story</h2>
+                    <h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Our Story</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                        <p class="text-navy-800/70 text-sm md:text-base leading-relaxed font-sans">Born from a passion for timeless design and uncompromising quality, <strong class="text-navy-800">Vora Atelier</strong> curates handbags that celebrate the modern woman's journey.</p>
-                        <p class="text-navy-800/70 text-sm md:text-base leading-relaxed font-sans mt-4">From the atelier to your arm — a handbag is more than an accessory; it is an extension of your elegance, your ambition, and your unique voice.</p>
+                        <p class="text-rose-800/70 text-sm md:text-base leading-relaxed font-sans">Born from a passion for timeless design and uncompromising quality, <strong class="text-rose-900">Vora Atelier</strong> curates handbags that celebrate the modern woman's journey.</p>
+                        <p class="text-rose-800/70 text-sm md:text-base leading-relaxed font-sans mt-4">From the atelier to your arm — a handbag is more than an accessory; it is an extension of your elegance, your ambition, and your unique voice.</p>
                     <div class="mt-6 flex flex-wrap gap-6">
-                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-navy-400">50+</p><p class="text-[10px] md:text-xs text-navy-500/70 font-sans uppercase tracking-wider mt-1">Happy Clients</p></div>
-                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-navy-400">15</p><p class="text-[10px] md:text-xs text-navy-500/70 font-sans uppercase tracking-wider mt-1">Signature Pieces</p></div>
-                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-navy-400">100%</p><p class="text-[10px] md:text-xs text-navy-500/70 font-sans uppercase tracking-wider mt-1">Authentic</p></div>
+                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-rose-400">50+</p><p class="text-[10px] md:text-xs text-rose-500/70 font-sans uppercase tracking-wider mt-1">Happy Clients</p></div>
+                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-rose-400">15</p><p class="text-[10px] md:text-xs text-rose-500/70 font-sans uppercase tracking-wider mt-1">Signature Pieces</p></div>
+                            <div class="text-center"><p class="text-xl md:text-3xl font-serif font-bold text-rose-400">100%</p><p class="text-[10px] md:text-xs text-rose-500/70 font-sans uppercase tracking-wider mt-1">Authentic</p></div>
                         </div>
                     </div>
                     <div class="aspect-[4/3] rounded-lg overflow-hidden shadow-md"><img src="images/ourstory.png" alt="Our Story" class="w-full h-full object-cover"></div>
@@ -630,27 +682,27 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 
         <!-- ===== WHY CHOOSE US ===== -->
         <section class="mb-24 md:mb-32 reveal">
-            <div class="flex items-center gap-4 mb-6"><span class="category-line"></span><h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Why Choose Us</h2></div>
+            <div class="flex items-center gap-4 mb-6"><span class="category-line"></span><h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Why Choose Us</h2></div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="bg-navy-50/60 rounded-xl p-5 text-center border border-navy-200/60">
-                    <div class="w-10 h-10 mx-auto bg-navy-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
-                    <h3 class="text-xs md:text-sm font-serif font-semibold text-navy-800">100% Authentic</h3>
-                    <p class="text-[10px] md:text-xs text-navy-500/70 mt-1 font-sans">Guaranteed genuine luxury</p>
+                <div class="bg-rose-50/60 rounded-xl p-5 text-center border border-rose-200/60">
+                    <div class="w-10 h-10 mx-auto bg-rose-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
+                    <h3 class="text-xs md:text-sm font-serif font-semibold text-rose-900">100% Authentic</h3>
+                    <p class="text-[10px] md:text-xs text-rose-500/70 mt-1 font-sans">Guaranteed genuine luxury</p>
                 </div>
-                <div class="bg-navy-50/60 rounded-xl p-5 text-center border border-navy-200/60">
-                    <div class="w-10 h-10 mx-auto bg-navy-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg></div>
-                    <h3 class="text-xs md:text-sm font-serif font-semibold text-navy-800">Free Delivery</h3>
-                    <p class="text-[10px] md:text-xs text-navy-500/70 mt-1 font-sans">Nairobi metro areas</p>
+                <div class="bg-rose-50/60 rounded-xl p-5 text-center border border-rose-200/60">
+                    <div class="w-10 h-10 mx-auto bg-rose-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg></div>
+                    <h3 class="text-xs md:text-sm font-serif font-semibold text-rose-900">Free Delivery</h3>
+                    <p class="text-[10px] md:text-xs text-rose-500/70 mt-1 font-sans">Nairobi metro areas</p>
                 </div>
-                <div class="bg-navy-50/60 rounded-xl p-5 text-center border border-navy-200/60">
-                    <div class="w-10 h-10 mx-auto bg-navy-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125V9M7.5 12.75c1.5 0 2.25-1.5 2.25-3S9 6.75 7.5 6.75 5.25 8.25 5.25 9.75 6 12.75 7.5 12.75z"/></svg></div>
-                    <h3 class="text-xs md:text-sm font-serif font-semibold text-navy-800">Secure Payment</h3>
-                    <p class="text-[10px] md:text-xs text-navy-500/70 mt-1 font-sans">M-Pesa, Visa & bank</p>
+                <div class="bg-rose-50/60 rounded-xl p-5 text-center border border-rose-200/60">
+                    <div class="w-10 h-10 mx-auto bg-rose-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125V9M7.5 12.75c1.5 0 2.25-1.5 2.25-3S9 6.75 7.5 6.75 5.25 8.25 5.25 9.75 6 12.75 7.5 12.75z"/></svg></div>
+                    <h3 class="text-xs md:text-sm font-serif font-semibold text-rose-900">Secure Payment</h3>
+                    <p class="text-[10px] md:text-xs text-rose-500/70 mt-1 font-sans">M-Pesa, Visa & bank</p>
                 </div>
-                <div class="bg-navy-50/60 rounded-xl p-5 text-center border border-navy-200/60">
-                    <div class="w-10 h-10 mx-auto bg-navy-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0013.803-3.7l3.181 3.182M2.985 19.644l3.181-3.182"/></svg></div>
-                    <h3 class="text-xs md:text-sm font-serif font-semibold text-navy-800">Easy Returns</h3>
-                    <p class="text-[10px] md:text-xs text-navy-500/70 mt-1 font-sans">7-day return policy</p>
+                <div class="bg-rose-50/60 rounded-xl p-5 text-center border border-rose-200/60">
+                    <div class="w-10 h-10 mx-auto bg-rose-200/60 rounded-full flex items-center justify-center mb-3"><svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0013.803-3.7l3.181 3.182M2.985 19.644l3.181-3.182"/></svg></div>
+                    <h3 class="text-xs md:text-sm font-serif font-semibold text-rose-900">Easy Returns</h3>
+                    <p class="text-[10px] md:text-xs text-rose-500/70 mt-1 font-sans">7-day return policy</p>
                 </div>
             </div>
         </section>
@@ -658,31 +710,31 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         <!-- ===== CONTACT ===== -->
         <section id="contact" class="section-spacer py-16 md:py-24 bg-cream-200/30 rounded-2xl px-6 md:px-16 reveal">
             <div class="max-w-4xl mx-auto">
-                <div class="flex items-center gap-4 mb-6"><span class="category-line"></span><h2 class="text-xl md:text-3xl font-semibold text-navy-800 tracking-wide">Get in Touch</h2></div>
+                <div class="flex items-center gap-4 mb-6"><span class="category-line"></span><h2 class="text-xl md:text-3xl font-semibold text-rose-900 tracking-wide">Get in Touch</h2></div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <p class="text-navy-800/70 text-sm md:text-base leading-relaxed font-sans">Have a question, need styling advice, or want to place a custom order? We're here to help.</p>
+                        <p class="text-rose-800/70 text-sm md:text-base leading-relaxed font-sans">Have a question, need styling advice, or want to place a custom order? We're here to help.</p>
                         <div class="mt-6 space-y-4">
                             <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-navy-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div>
-                        <div><p class="text-[10px] text-navy-500/70 font-sans uppercase tracking-wider">WhatsApp</p><p class="text-sm font-sans font-medium text-navy-800">+254 799 341 904</p></div>
+                        <div class="w-9 h-9 bg-rose-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div>
+                        <div><p class="text-[10px] text-rose-500/70 font-sans uppercase tracking-wider">WhatsApp</p><p class="text-sm font-sans font-medium text-rose-900">+254 799 341 904</p></div>
                             </div>
                             <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-navy-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
-                        <div><p class="text-[10px] text-navy-500/70 font-sans uppercase tracking-wider">Email</p><p class="text-sm font-sans font-medium text-navy-800">hello@voraatelier.com</p></div>
+                        <div class="w-9 h-9 bg-rose-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
+                        <div><p class="text-[10px] text-rose-500/70 font-sans uppercase tracking-wider">Email</p><p class="text-sm font-sans font-medium text-rose-900">hello@voraatelier.com</p></div>
                             </div>
                             <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-navy-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
-                        <div><p class="text-[10px] text-navy-500/70 font-sans uppercase tracking-wider">Location</p><p class="text-sm font-sans font-medium text-navy-800">Nairobi, Kenya</p></div>
+                        <div class="w-9 h-9 bg-rose-200/60 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
+                        <div><p class="text-[10px] text-rose-500/70 font-sans uppercase tracking-wider">Location</p><p class="text-sm font-sans font-medium text-rose-900">Nairobi, Kenya</p></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <form class="space-y-3">
-                            <div><label class="block text-[10px] font-sans font-medium text-navy-500 uppercase tracking-wider mb-1">Your Name</label><input type="text" class="w-full border border-navy-200 rounded-lg px-4 py-2.5 text-sm font-sans text-navy-800 bg-cream-50/80 focus:outline-none focus:border-navy-400 transition" placeholder="Grace Wanjiku"></div>
-                            <div><label class="block text-[10px] font-sans font-medium text-navy-500 uppercase tracking-wider mb-1">Your Email</label><input type="email" class="w-full border border-navy-200 rounded-lg px-4 py-2.5 text-sm font-sans text-navy-800 bg-cream-50/80 focus:outline-none focus:border-navy-400 transition" placeholder="grace@example.com"></div>
-                            <div><label class="block text-[10px] font-sans font-medium text-navy-500 uppercase tracking-wider mb-1">Message</label><textarea rows="3" class="w-full border border-navy-200 rounded-lg px-4 py-2.5 text-sm font-sans text-navy-800 bg-cream-50/80 focus:outline-none focus:border-navy-400 transition resize-none" placeholder="I'd love to know more about..."></textarea></div>
-                            <button type="button" onclick="window.open('https://wa.me/254799341904?text=Hello%20Vora%20Atelier%2C%20I%20have%20a%20question','_blank')" class="w-full bg-navy-600 text-white py-2.5 rounded-lg text-sm font-sans font-semibold uppercase tracking-wider hover:bg-navy-700 transition-colors shadow-sm">Send Message</button>
+                            <div><label class="block text-[10px] font-sans font-medium text-rose-500 uppercase tracking-wider mb-1">Your Name</label><input type="text" class="w-full border border-rose-200 rounded-lg px-4 py-2.5 text-sm font-sans text-rose-900 bg-cream-50/80 focus:outline-none focus:border-rose-400 transition" placeholder="Grace Wanjiku"></div>
+                            <div><label class="block text-[10px] font-sans font-medium text-rose-500 uppercase tracking-wider mb-1">Your Email</label><input type="email" class="w-full border border-rose-200 rounded-lg px-4 py-2.5 text-sm font-sans text-rose-900 bg-cream-50/80 focus:outline-none focus:border-rose-400 transition" placeholder="grace@example.com"></div>
+                            <div><label class="block text-[10px] font-sans font-medium text-rose-500 uppercase tracking-wider mb-1">Message</label><textarea rows="3" class="w-full border border-rose-200 rounded-lg px-4 py-2.5 text-sm font-sans text-rose-900 bg-cream-50/80 focus:outline-none focus:border-rose-400 transition resize-none" placeholder="I'd love to know more about..."></textarea></div>
+                            <button type="button" onclick="window.open('https://wa.me/254799341904?text=Hello%20Vora%20Atelier%2C%20I%20have%20a%20question','_blank')" class="w-full bg-rose-900 text-white py-2.5 rounded-lg text-sm font-sans font-semibold uppercase tracking-wider hover:bg-rose-800 transition-colors shadow-sm">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -742,13 +794,15 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
             },
 
             render: function() {
-                // Update badge
+                // Update badges (desktop + mobile)
                 var badge = document.getElementById('cartCount');
+                var badgeMobile = document.getElementById('cartCountMobile');
                 if (this.totalQty > 0) {
-                    badge.textContent = this.totalQty;
-                    badge.classList.add('show');
+                    if (badge) { badge.textContent = this.totalQty; badge.classList.add('show'); }
+                    if (badgeMobile) { badgeMobile.textContent = this.totalQty; badgeMobile.classList.add('show'); }
                 } else {
-                    badge.classList.remove('show');
+                    if (badge) badge.classList.remove('show');
+                    if (badgeMobile) badgeMobile.classList.remove('show');
                 }
 
                 // Render drawer items
@@ -757,11 +811,11 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 if (this.items.length === 0) {
                     container.innerHTML =
                         '<div class="cart-empty">' +
-                            '<div class="w-16 h-16 bg-navy-100 rounded-full flex items-center justify-center mb-4">' +
-                                '<svg class="w-7 h-7 text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>' +
+                            '<div class="w-16 h-16 bg-rose-200/60 rounded-full flex items-center justify-center mb-4">' +
+                                '<svg class="w-7 h-7 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>' +
                             '</div>' +
-                            '<p class="text-navy-800/50 font-serif text-lg">Your cart is empty</p>' +
-                            '<p class="text-navy-500/70 text-sm mt-2 font-sans">Add some luxury pieces to get started</p>' +
+                            '<p class="text-rose-900/50 font-serif text-lg">Your cart is empty</p>' +
+                            '<p class="text-rose-500/70 text-sm mt-2 font-sans">Add some luxury pieces to get started</p>' +
                         '</div>';
                     footer.innerHTML = '';
                     return;
@@ -774,12 +828,12 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                         '<div class="cart-item">' +
                             '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-img">' +
                             '<div class="flex-1 min-w-0">' +
-                                '<h4 class="text-sm font-serif font-semibold text-navy-800 truncate">' + item.name + '</h4>' +
-                                '<p class="text-xs text-navy-500 font-sans font-medium mt-0.5">KES ' + item.price.toLocaleString() + '</p>' +
-                                '<p class="text-xs text-[#2A1A1A]/60 font-sans mt-1">Qty: ' + item.qty + '</p>' +
+                                '<h4 class="text-sm font-serif font-semibold text-rose-900 truncate">' + item.name + '</h4>' +
+                                '<p class="text-xs text-rose-500 font-sans font-medium mt-0.5">KES ' + item.price.toLocaleString() + '</p>' +
+                                '<p class="text-xs text-rose-900/60 font-sans mt-1">Qty: ' + item.qty + '</p>' +
                             '</div>' +
                             '<div class="text-right flex-shrink-0">' +
-                                '<p class="text-sm font-serif font-semibold text-[#2A1A1A]">KES ' + (item.price * item.qty).toLocaleString() + '</p>' +
+                                '<p class="text-sm font-serif font-semibold text-rose-900">KES ' + (item.price * item.qty).toLocaleString() + '</p>' +
                                 '<button class="remove-btn mt-1" onclick="cart.remove(\'' + item.name.replace(/'/g, "\\'") + '\')" aria-label="Remove ' + item.name + '">✕</button>' +
                             '</div>' +
                         '</div>';
@@ -788,14 +842,14 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 
                 footer.innerHTML =
                     '<div class="flex items-center justify-between mb-3">' +
-                        '<span class="text-sm font-sans text-[#2A1A1A]/70">Total Items</span>' +
-                        '<span class="text-sm font-sans font-medium text-[#2A1A1A]">' + this.totalQty + '</span>' +
+                        '<span class="text-sm font-sans text-rose-900/70">Total Items</span>' +
+                        '<span class="text-sm font-sans font-medium text-rose-900">' + this.totalQty + '</span>' +
                     '</div>' +
                     '<div class="flex items-center justify-between mb-4">' +
-                        '<span class="text-base font-serif font-semibold text-[#2A1A1A]">Total</span>' +
-                        '<span class="text-base font-serif font-semibold text-[#2A1A1A]">KES ' + this.totalPrice.toLocaleString() + '</span>' +
+                        '<span class="text-base font-serif font-semibold text-rose-900">Total</span>' +
+                        '<span class="text-base font-serif font-semibold text-rose-900">KES ' + this.totalPrice.toLocaleString() + '</span>' +
                     '</div>' +
-                    '<a href="https://wa.me/254799341904?text=Hello%20Vora%20Atelier%2C%20I%20would%20like%20to%20order%3A%0A' + encodeURIComponent(this.getOrderSummary()) + '" target="_blank" class="block w-full bg-navy-600 text-white text-center py-3 rounded-lg text-sm font-sans font-semibold uppercase tracking-wider hover:bg-navy-700 transition-colors shadow-sm">Order via WhatsApp</a>';
+                    '<a href="https://wa.me/254799341904?text=Hello%20Vora%20Atelier%2C%20I%20would%20like%20to%20order%3A%0A' + encodeURIComponent(this.getOrderSummary()) + '" target="_blank" class="block w-full bg-rose-900 text-white text-center py-3 rounded-lg text-sm font-sans font-semibold uppercase tracking-wider hover:bg-rose-800 transition-colors shadow-sm">Order via WhatsApp</a>';
             },
 
             getOrderSummary: function() {
@@ -807,6 +861,21 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
                 return summary;
             }
         };
+
+        // ===== MOBILE SHOP DROPDOWN TOGGLE =====
+        function toggleShopDropdown() {
+            var dropdown = document.getElementById('shopDropdown');
+            var arrow = document.getElementById('shopArrow');
+            var isHidden = dropdown.classList.contains('hidden');
+            
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                dropdown.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
 
         // ===== CART DRAWER TOGGLE =====
         function toggleCart() {
@@ -863,23 +932,26 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
             if (qtyBtns.length >= 1) qtyBtns[0].disabled = true;
             if (qtyBtns.length >= 2) qtyBtns[1].disabled = false;
 
-            // Bump animation on cart icon
+            // Drop animation on cart icons (desktop + mobile)
             var cartIcon = document.getElementById('cartIcon');
-            cartIcon.classList.remove('cart-bump');
-            void cartIcon.offsetWidth;
-            cartIcon.classList.add('cart-bump');
+            var cartIconMobile = document.getElementById('cartIconMobile');
+            [cartIcon, cartIconMobile].forEach(function(icon) {
+                if (!icon) return;
+                icon.classList.remove('cart-drop');
+                void icon.offsetWidth;
+                icon.classList.add('cart-drop');
+            });
 
             // Button feedback
             var originalText = btn.textContent;
             btn.textContent = '✓ Added';
-            btn.style.background = '#4A6178';
+            btn.style.background = '#B86B7A';
+            btn.style.color = '#fff';
             setTimeout(function() {
                 btn.textContent = originalText;
                 btn.style.background = '';
+                btn.style.color = '';
             }, 1500);
-
-            // Auto-open drawer
-            toggleCart();
         }
 
         // ===== BACK TO TOP VISIBILITY =====
@@ -939,31 +1011,31 @@ h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 
     <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
     <a href="https://wa.me/254799341904" target="_blank" rel="noopener"
-       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-navy-600 hover:bg-navy-700 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-navy-500/50"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-rose-900 hover:bg-rose-800 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-rose-500/50"
        aria-label="Chat on WhatsApp">
         <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-cream-200/40 border-t border-navy-200/60 pb-24 md:pb-20">
+    <footer class="bg-rose-50/40 border-t border-rose-200/60 pb-24 md:pb-20">
         <div class="max-w-6xl mx-auto px-6 py-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div class="col-span-2 md:col-span-1">
-                    <h4 class="text-base font-serif font-semibold text-navy-800 mb-2">Vora Atelier</h4>
-                    <p class="text-[11px] text-navy-500/70 leading-relaxed font-sans">Timeless elegance, meticulously crafted for the discerning woman.</p>
+                    <h4 class="text-base font-serif font-semibold text-rose-900 mb-2">Vora Atelier</h4>
+                    <p class="text-[11px] text-rose-500/70 leading-relaxed font-sans">Timeless elegance, meticulously crafted for the discerning woman.</p>
                 </div>
-                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-navy-500 mb-2">Quick Links</h5>
-                    <ul class="space-y-1.5"><li><a href="#totes" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Totes</a></li><li><a href="#crossbody" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Crossbody</a></li><li><a href="#clutches" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Clutches</a></li><li><a href="#about" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Our Story</a></li></ul>
+                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-rose-500 mb-2">Quick Links</h5>
+                    <ul class="space-y-1.5"><li><a href="#totes" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Totes</a></li><li><a href="#crossbody" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Crossbody</a></li><li><a href="#clutches" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Clutches</a></li><li><a href="#about" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Our Story</a></li></ul>
                 </div>
-                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-navy-500 mb-2">Support</h5>
-                    <ul class="space-y-1.5"><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Shipping</a></li><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Returns</a></li><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">FAQs</a></li><li><a href="#contact" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Contact</a></li></ul>
+                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-rose-500 mb-2">Support</h5>
+                    <ul class="space-y-1.5"><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Shipping</a></li><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Returns</a></li><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">FAQs</a></li><li><a href="#contact" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Contact</a></li></ul>
                 </div>
-                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-navy-500 mb-2">Follow</h5>
-                    <ul class="space-y-1.5"><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Instagram</a></li><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">TikTok</a></li><li><a href="#" class="text-[11px] text-navy-700/50 hover:text-navy-600 transition-colors font-sans">Facebook</a></li></ul>
+                <div><h5 class="text-[10px] font-sans font-semibold uppercase tracking-wider text-rose-500 mb-2">Follow</h5>
+                    <ul class="space-y-1.5"><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Instagram</a></li><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">TikTok</a></li><li><a href="#" class="text-[11px] text-rose-700/50 hover:text-rose-600 transition-colors font-sans">Facebook</a></li></ul>
                 </div>
             </div>
-            <div class="border-t border-navy-200/60 pt-6 text-center">
-                <p class="text-navy-500/60 text-[10px] font-sans tracking-[0.1em] uppercase font-medium">&copy; 2026 Vora Atelier &middot; All rights reserved</p>
+            <div class="border-t border-rose-200/60 pt-6 text-center">
+                <p class="text-rose-500/60 text-[10px] font-sans tracking-[0.1em] uppercase font-medium">&copy; 2026 Vora Atelier &middot; All rights reserved</p>
             </div>
         </div>
     </footer>
